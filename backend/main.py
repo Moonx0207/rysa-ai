@@ -123,6 +123,11 @@ def health_check() -> dict[str, str]:
     return {"status": "ok"}
 
 
+@app.get("/")
+def root() -> dict[str, str]:
+    return {"message": "Rysa AI backend is running"}
+
+
 @app.post("/chat", response_model=ChatResponse)
 def chat(request: ChatRequest) -> ChatResponse:
     client = get_client()
@@ -138,6 +143,7 @@ def chat(request: ChatRequest) -> ChatResponse:
             messages=historico,
         )
     except Exception as error:  # noqa: BLE001
+        print(f"Groq error: {error!r}")
         raise HTTPException(
             status_code=502,
             detail="Erro ao consultar a IA. Verifique sua chave, quota e conexão.",
