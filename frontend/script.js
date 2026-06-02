@@ -4,7 +4,7 @@ const userPrompt = document.getElementById("userPrompt");
 const sendButton = chatForm.querySelector("button");
 const heroHeading = document.querySelector(".hero h1");
 
-const API_URL = "http://127.0.0.1:8000/chat";
+const API_URL = "https://rysa-ai.onrender.com";
 const PLACEHOLDER_TEXTS = [
   "Pergunte sobre variáveis, loops ou funções...",
   "Como começo na programação do zero?",
