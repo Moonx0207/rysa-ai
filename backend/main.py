@@ -1,4 +1,5 @@
 import os
+import traceback
 
 from dotenv import load_dotenv
 from fastapi import FastAPI, HTTPException
@@ -135,7 +136,7 @@ def chat(request: ChatRequest) -> ChatResponse:
 
     try:
         completion = client.chat.completions.create(
-            model="llama3-70b-8192",
+            model="llama3-8b-8192",
             temperature=0.0,
             top_p=1.0,
             frequency_penalty=0,
@@ -144,6 +145,7 @@ def chat(request: ChatRequest) -> ChatResponse:
         )
     except Exception as error:  # noqa: BLE001
         print(f"Groq error: {error!r}")
+        print(traceback.format_exc())
         raise HTTPException(
             status_code=502,
             detail="Erro ao consultar a IA. Verifique sua chave, quota e conexão.",
