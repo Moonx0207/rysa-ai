@@ -136,7 +136,7 @@ def chat(request: ChatRequest) -> ChatResponse:
 
     try:
         completion = client.chat.completions.create(
-            model="llama3-8b-8192",
+            model="llama-3.3-70b-versatile",
             temperature=0.0,
             top_p=1.0,
             frequency_penalty=0,
