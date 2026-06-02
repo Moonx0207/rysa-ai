@@ -130,7 +130,7 @@ def chat(request: ChatRequest) -> ChatResponse:
 
     try:
         completion = client.chat.completions.create(
-            model="openai/gpt-oss-120b",
+            model="llama3-70b-8192",
             temperature=0.0,
             top_p=1.0,
             frequency_penalty=0,
