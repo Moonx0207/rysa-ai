@@ -1,0 +1,15 @@
+.env
+.vercel
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.log
+.venv/
+venv/
+env/
+backend/__pycache__/
+frontend/node_modules/
+frontend/.vercel/
+.DS_Store
+Thumbs.db
